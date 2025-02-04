@@ -1,0 +1,7 @@
+streamlit
+streamlit_js_eval
+langchain
+langchain_community
+langchain_chroma
+langchain_openai
+openai
