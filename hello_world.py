@@ -14,7 +14,14 @@ with st.chat_message('assistant'):
 # chatの入力欄
 st.chat_input(placeholder="メッセージを入力")
 
-# chatの受け取りも可能
-# if user_prompt := st.chat_input(placeholder="メッセージを入力2"):
+
+# # chatの受け取りも可能
+# if user_prompt := st.chat_input(placeholder="メッセージを入力"):
 #     with st.chat_message('user'):
 #         st.markdown(user_prompt)
+#         # session stateの更新
+#         st.session_state.user_message = user_prompt
+
+# st.write("## session stateの中身")
+# st.session_state
+
