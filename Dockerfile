@@ -1,20 +1,21 @@
-# Use official Python image as a base
+# Python公式のimageを使う
 FROM python:3.10
 
-# Set the working directory inside the container
+# working directoryの指定
 WORKDIR /app
 
-# Copy the requirements file to the container
+# requirementsファイルをコピー
 COPY requirements.txt requirements.txt
 
-# Install dependencies
+# 依存パッケージのインストール
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the application code to the container
+# アプリのコードをコンテナ内へコピー
 COPY . .
 
-# Expose the Streamlit default port
+# Streamlitのデフォルトポートを解放
 EXPOSE 8501
 
-# Run the Streamlit app
+# streamlitアプリの実行
+# CMD ["streamlit", "run", "hello_world.py", "--server.port=8501", "--server.address=0.0.0.0"]
 CMD ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"]
