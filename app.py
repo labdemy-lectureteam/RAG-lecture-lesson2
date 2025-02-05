@@ -33,7 +33,8 @@ for message in st.session_state.messages:
     with st.chat_message(message['role']):
         st.markdown(message['content'])
         
-if user_prompt := st.chat_input():
+user_prompt = st.chat_input()
+if user_prompt:
     with st.chat_message('user'):
         st.markdown(user_prompt)
     st.session_state.messages.append({'role':'user', 'content':user_prompt})
