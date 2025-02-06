@@ -16,7 +16,8 @@ st.chat_input(placeholder="メッセージを入力")
 
 
 # # chatの受け取りも可能
-# if user_prompt := st.chat_input(placeholder="メッセージを入力"):
+# user_prompt = st.chat_input(placeholder="メッセージを入力")
+# if user_prompt:
 #     with st.chat_message('user'):
 #         st.markdown(user_prompt)
 #         # session stateの更新
