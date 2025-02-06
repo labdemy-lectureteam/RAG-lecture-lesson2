@@ -49,7 +49,7 @@ if user_prompt:
     # 回答と出典の表示
     with st.chat_message('assistant'):
         response = st.write_stream(st.session_state.model.stream(final_prompt))
-        formatted_sources = '参考文献：\n' 
+        formatted_sources = '\n 参考文献：\n' 
         formatted_sources += '\n '.join(f"{idx+1}. {source['source']}, {source['page']}ページ" for idx,source in enumerate(sources))
         st.markdown(formatted_sources)
-    st.session_state.messages.append({'role':'assistant', 'content':response})
+    st.session_state.messages.append({'role':'assistant', 'content':response+formatted_sources})
