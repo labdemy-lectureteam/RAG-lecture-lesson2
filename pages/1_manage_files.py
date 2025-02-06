@@ -5,7 +5,8 @@ from streamlit_js_eval import streamlit_js_eval
 
 st.write('## ファイル管理画面')
 
-if uploaded_files := st.file_uploader("ファイルをアップロード：",accept_multiple_files=True):
+uploaded_files = st.file_uploader("ファイルをアップロード：",accept_multiple_files=True)
+if uploaded_files:
     if not os.path.exists("documents"):
         os.makedirs("documents")
     for uploaded_file in uploaded_files:
