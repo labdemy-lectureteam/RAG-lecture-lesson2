@@ -1,6 +1,7 @@
 import streamlit as st
 import os
 from app import reset_st_session
+from streamlit_js_eval import streamlit_js_eval
 
 st.write('## ファイル管理画面')
 
@@ -13,7 +14,7 @@ if uploaded_files := st.file_uploader("ファイルをアップロード：",acc
     reset_st_session()    
     msg = 'PDFデータの更新が完了しました。'
     st.session_state.messages.append({'role':'assistant', 'content':msg})
-
+    streamlit_js_eval(js_expressions="parent.window.location.reload()")
 
 st.write('#### ファイル一覧')
 files_to_remove = []
@@ -27,4 +28,5 @@ if st.button("選択したファイルを削除",key='delete_files'):
     for file in files_to_remove:
         os.remove(f'documents/{file}')
     st.rerun()
+    # streamlit_js_eval(js_expressions="parent.window.location.reload()")
     

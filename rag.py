@@ -11,12 +11,15 @@ import chromadb
 from typing import List, Dict, Any
 from langchain_core.vectorstores import VectorStore
 from langchain_core.documents import Document
-
+import streamlit as st
 
 def load_PDF(path: str) -> List[Document]:
     if os.path.isdir(path):
         loader = PyPDFDirectoryLoader(path, glob="*.pdf")
-        documents = loader.load()
+        try:
+            documents = loader.load()
+        except Exception as error:
+            st.markdown(error)
     elif os.path.isfile(path):
         if not path.lower().endswith('.pdf'):
             raise ValueError(f"与えられたファイル：  '{path}' はPDFではありません.")
