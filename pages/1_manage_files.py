@@ -29,5 +29,4 @@ if st.button("選択したファイルを削除",key='delete_files'):
     for file in files_to_remove:
         os.remove(f'documents/{file}')
     st.rerun()
-    # streamlit_js_eval(js_expressions="parent.window.location.reload()")
     
