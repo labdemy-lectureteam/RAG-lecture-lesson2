@@ -42,14 +42,21 @@ docker build -t streamlit-langchain-app .
 
 ### 5. **コンテナを実行**
 以下のコマンドでコンテナを起動します。
+
+mac/linux
 ```sh
-docker run -p 8501:8501 streamlit-langchain-app
+docker run -p 8501:8501 -v $(pwd):/app --rm streamlit-langchain-app
+```
+
+windows(power shell)
+```sh
+docker run -p 8501:8501 -v ${pwd}:/app --rm streamlit-langchain-app
 ```
 
 この状態で、ブラウザを開いて `http://localhost:8501` にアクセスすると、Streamlitアプリが表示されます。
 
 ## 🔄 変更の適用
-アプリのコードを更新した場合、新しいパッケージを適用するために、以下の手順を実行してください。
+アプリを更新した場合、新しいパッケージを適用するために、以下の手順を実行してください。
 
 1. **コンテナを停止・削除**
    ```sh
