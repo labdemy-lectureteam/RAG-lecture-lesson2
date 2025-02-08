@@ -18,7 +18,7 @@ Dockerがインストールされていれば、バージョン情報が表示�
 ### 2. **リポジトリをクローン**
 以下のコマンドでリポジトリをクローンします。
 ```sh
-git clone https://github.com/labdemy-lectureteam/RAG-lecture-lesson2.git
+git clone -b todo_branch https://github.com/labdemy-lectureteam/RAG-lecture-lesson2.git
 cd RAG-lecture-lesson2
 ```
 
