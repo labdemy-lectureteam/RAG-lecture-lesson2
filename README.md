@@ -22,13 +22,25 @@ git clone -b todo_branch https://github.com/labdemy-lectureteam/RAG-lecture-less
 cd RAG-lecture-lesson2
 ```
 
-### 3. **Docker イメージをビルド**
+### 3. **.envファイルを作成**
+ルートディレクトリ下（RAG-lecture-lesson2）で以下のコマンドを実行し .env ファイルを作成してください。
+```sh
+touch .env
+```
+
+エディタで .env ファイルを開き、以下の内容を追加してください（必要に応じて値を変更）。
+
+```txt
+API_KEY=your_api_key_here
+```
+
+### 4. **Docker イメージをビルド**
 アプリケーションのDockerイメージをビルドします。
 ```sh
 docker build -t streamlit-langchain-app .
 ```
 
-### 4. **コンテナを実行**
+### 5. **コンテナを実行**
 以下のコマンドでコンテナを起動します。
 ```sh
 docker run -p 8501:8501 streamlit-langchain-app
