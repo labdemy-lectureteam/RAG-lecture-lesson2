@@ -31,7 +31,7 @@ touch .env
 エディタで .env ファイルを開き、以下の内容を追加してください（必要に応じて値を変更）。
 
 ```txt
-OPENAI_API_KEY==your_api_key_here
+OPENAI_API_KEY=your_api_key_here
 ```
 
 ### 4. **Docker イメージをビルド**
