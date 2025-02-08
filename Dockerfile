@@ -10,9 +10,6 @@ COPY requirements.txt requirements.txt
 # 依存パッケージのインストール
 RUN pip install --no-cache-dir -r requirements.txt
 
-# アプリのコードをコンテナ内へコピー
-COPY . .
-
 # Streamlitのデフォルトポートを解放
 EXPOSE 8501
 
