@@ -18,26 +18,45 @@ Dockerがインストールされていれば、バージョン情報が表示�
 ### 2. **リポジトリをクローン**
 以下のコマンドでリポジトリをクローンします。
 ```sh
-git clone https://github.com/labdemy-lectureteam/RAG-lecture-lesson2.git
+git clone -b todo_branch https://github.com/labdemy-lectureteam/RAG-lecture-lesson2.git
 cd RAG-lecture-lesson2
 ```
 
-### 3. **Docker イメージをビルド**
+### 3. **.envファイルを作成**
+ルートディレクトリ下（RAG-lecture-lesson2）で以下のコマンドを実行し .env ファイルを作成してください。
+```sh
+touch .env
+```
+
+エディタで .env ファイルを開き、以下の内容を追加してください（必要に応じて値を変更）。
+
+```txt
+API_KEY=your_api_key_here
+```
+
+### 4. **Docker イメージをビルド**
 アプリケーションのDockerイメージをビルドします。
 ```sh
 docker build -t streamlit-langchain-app .
 ```
 
-### 4. **コンテナを実行**
+### 5. **コンテナを実行**
 以下のコマンドでコンテナを起動します。
+
+mac/linux
 ```sh
-docker run -p 8501:8501 streamlit-langchain-app
+docker run -p 8501:8501 -v $(pwd):/app --rm streamlit-langchain-app
+```
+
+windows(power shell)
+```sh
+docker run -p 8501:8501 -v ${pwd}:/app --rm streamlit-langchain-app
 ```
 
 この状態で、ブラウザを開いて `http://localhost:8501` にアクセスすると、Streamlitアプリが表示されます。
 
 ## 🔄 変更の適用
-アプリのコードを更新した場合、新しいパッケージを適用するために、以下の手順を実行してください。
+アプリを更新した場合、新しいパッケージを適用するために、以下の手順を実行してください。
 
 1. **コンテナを停止・削除**
    ```sh
